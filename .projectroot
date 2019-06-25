@@ -1,0 +1,27 @@
+<!--
+ @changed 2019.06.25, 09:34
+-->
+
+## Project docs
+
+- `README.md`
+- `TODO.md`
+- `CHANGELOG.md`
+
+## Config files
+
+- `.git/config`
+- `package.json`
+- ~~`webpack.env.js`~~
+- ~~`webpack.config.js`~~
+- ~~`babel.config.js`~~
+- ~~`.lvimrc`~~
+- `.editorconfig`
+- ~~`gulpfile.js`~~
+- `jest.config.js`
+- `.eslintrc.yml`
+- `.eslintignore`
+- `~~.stylelintrc.yml`~~
+- ~~`.stylelintignore`~~
+
+

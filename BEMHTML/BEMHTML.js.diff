@@ -1,0 +1,43 @@
+--- BEMHTML.js.orig	Fri Mar 22 22:19:26 2019
++++ BEMHTML.js	Sun Apr 07 17:11:58 2019
+@@ -1,5 +1,6 @@
+ var BEMHTML;
+-(function(global) {
++(function() {
++var global = this;
+ function buildBemXjst(libs) {
+ var exports;
+ /* BEM-XJST Runtime Start */
+@@ -10,7 +11,7 @@
+ var BemxjstEntity = require('../bemxjst/entity').Entity;
+ 
+ /**
+- * @class Entity
++ * @module Entity
+  * @param {BEMXJST} bemxjst
+  * @param {String} block
+  * @param {String} elem
+@@ -181,7 +182,7 @@
+   }
+ 
+   if (addJSInitClass)
+-    classValue += ' i-bem';
++    classValue += ' bem-js';
+ 
+   out += this._unquotedAttrs && utils.isUnquotedAttr(classValue) ?
+     classValue :
+@@ -2300,7 +2301,7 @@
+ });;
+ return module.exports || exports.BEMHTML;
+ }({}, {});
+-var api = new BEMHTML({"to":"BEMHTML.js"});
++var api = new BEMHTML({ elemJsInstances:true, exportName:'BEMHTML', to:'BEMHTML.js' });
+ api.compile(function(match, block, elem, mod, elemMod, oninit, xjstOptions, wrap, replace, extend, mode, def, content, appendContent, prependContent, attrs, addAttrs, js, addJs, mix, addMix, mods, addMods, addElemMods, elemMods, tag, cls, bem, local, applyCtx, applyNext, apply) {
+ /* BEM-XJST User code here: */
+ 
+@@ -2337,4 +2338,4 @@
+ exp["BEMHTML"] = BEMHTML;exp["BEMHTML"].libs = glob;
+ }
+ }
+-})(typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : this);
++}).call(typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : this);

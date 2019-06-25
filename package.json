@@ -1,0 +1,50 @@
+{
+  "name": "nano-bem",
+  "version": "0.1.1",
+  "description": "Minimal ES6 bem library implementation",
+  "main": "index.js",
+  "author": "lilliputten <igor@lilliputten.ru> (http://lilliputten.ru)",
+  "license": "MIT",
+  "homepage": "https://github.com/lilliputten/nano-bem#readme",
+  "bugs": {
+    "url": "https://github.com/lilliputten/nano-bem/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilliputten/nano-bem.git"
+  },
+  "keywords": [
+    "bem",
+    "es6",
+    "xjst",
+    "bemhtml",
+    "js",
+    "webpack"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "event-lite": "^0.1.2",
+    "inherit": "^2.2.7",
+    "jquery": "^3.4.1",
+    "loader-utils": "^1.2.3",
+    "npm-run-all": "^4.1.5",
+    "offset-sourcemap-lines": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "bem-xjst": "^8.9.5",
+    "eslint": "^6.0.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-jest": "^22.7.1",
+    "jest": "^24.8.0"
+  },
+  "scripts": {
+    "eslint": "echo --JS source code linting-- && eslint src --ext .js && echo No JS problems found",
+    "lint": "echo --Lint all sources-- && npm-run-all eslint",
+    "jest-clear": "echo --Clear jest cache-- && jest --clearCache",
+    "jest": "echo --Run tests-- && jest --verbose",
+    "test": "echo --Run all lintings and tests-- && npm-run-all lint jest",
+    "tags": "ctags -R --exclude=@.ctagsignore ."
+  }
+}
