@@ -1,6 +1,12 @@
+[![npm version](https://badge.fury.io/js/nano-bem.svg)](https://badge.fury.io/js/nano-bem)
+
 # nano-bem
 
-Minimal ES6 bem-stack library based on Yandex'
+Minimal ES6 bem-stack implementation library.
+
+Based, inspired and partly inherits the code from famous client-side framework
+[i-bem](https://en.bem.info/technologies/classic/i-bem/) but it can work
+without `y-modules`, `borschik`, `enb` and other endemic Yandex' tools.
 
 ## Original Yandex bem libs:
 
@@ -21,7 +27,9 @@ See also:
 
 You need to add `webpack-nano-bemhtml-loader` as `.bemhtml` files loader.
 
-(`NANOBEM_PATH` hereafter means the location of the `nano-bem` library, for example `./node_modules/nano-bem/` or `<rootDir>/node_modules/nano-bem/` etc...)
+(`NANOBEM_PATH` hereafter means the location of the `nano-bem` library, for
+example `./node_modules/nano-bem/` or `<rootDir>/node_modules/nano-bem/`
+etc...)
 
 `webpack.config.js` sample fragment:
 

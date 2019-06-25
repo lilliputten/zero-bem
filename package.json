@@ -1,6 +1,6 @@
 {
   "name": "nano-bem",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Minimal ES6 bem library implementation",
   "main": "index.js",
   "author": "lilliputten <igor@lilliputten.ru> (http://lilliputten.ru)",

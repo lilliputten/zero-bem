@@ -1,75 +1,31 @@
 # https://eslint.org/docs/rules/
 # https://eslint.org/docs/user-guide/configuring#specifying-environments
-# env:
-#   browser: true
-#   commonjs: true
-#   es6: true
-#   node: true
-#   jquery: true
 extends:
   - 'eslint:recommended'
 plugins:
   - 'babel'
-# settings:
-#   react:
-#     version: 'detect'
 parser: 'babel-eslint'
 parserOptions:
-  # ecmaVersion: 2018
-  # ecmaVersion: 7
   # ecmaVersion: 5
   sourceType: module
-  # files:
-  #   -
-  #     patterns: '**/*.jsx'
-# {{{ Rules
 rules:
   no-debugger: warn
   no-console: warn
-  # no-console: 0 # DEBUG?
-  # no-const-assign: error
-  # no-unused-vars: 0 # DEBUG?
   no-unused-vars:
     - warn
     -
       vars: local
       varsIgnorePattern: ^_
-  # camelcase:
-  #   - warn
-  # indent:
-  #   - warn
-  #   - 2
   linebreak-style:
     - error
     - unix
-  # quotes:
-  #   - warn
-  #   - single
   curly: # single line statements without curly braces
     - warn
-    # - always
-  # curly: 0
   semi: # end-linbe semicolons
     - warn
     - always
-  # semi: 0
-# Rules }}}
-# {{{ Globals
-globals:
-  System: true # Webpack dynamic import
-  # config: true
-  # TODO 2019.02.27, 21:24 -- Remove global variables. Use modules.
-  # NOTE 2019.03.22, 12:20 -- Other globals to remove
-  # xerox: true
-  # env: true
-  # cons: true
-  # HP_environment: true
-  # ResponseHandler: true
-  # logger: true
-# Globals }}}
 overrides:
-  # {{{ JS
-  -
+  -  # JS
     files: '**/*.js'
     env:
       browser: true
@@ -77,9 +33,7 @@ overrides:
       es6: true
       node: true
       jquery: true
-  # JS }}}
-  # {{{ Jest tests
-  -
+  -  # Jest tests
     files: '**/*.test.js'
     env:
       jest: true
@@ -92,21 +46,15 @@ overrides:
       # 'jest/no-identical-title': 'error'
       # 'jest/prefer-to-have-length': 'warn'
       # 'jest/valid-expect': 'error'
-  # Jest tests }}}
-  # {{{ BEMHTML Templates
-  -
+  -  # BEMHTML Templates
     files:
       - "*.bemhtml"
     plugins: # (ES5 mode)
       - es5 # ES5 mode! https://www.npmjs.com/package/eslint-plugin-es5
-    # extends:
-    #   - eslint:recommended
-    #   - plugin:es5/no-es2015
     env:
       browser: true
       # commonjs: true
       # es6: false
-    # {{{ Rules (ES5 mode)
     rules:
       es5/no-arrow-functions: error
       es5/no-binary-and-octal-literals: error
@@ -160,8 +108,6 @@ overrides:
       # symbol-description: 0
       # template-curly-spacing: 0
       # yield-star-spacing: 0
-    # Rules }}}
-    # {{{ Globals
     globals:
       # See module requires option parameter for `webpack-nano-bemhtml-loader` in `webpack.config.js`
       config: true
@@ -198,5 +144,3 @@ overrides:
       tag: true
       wrap: true
       xjstOptions : true
-    # Globals }}}
-  # BEMHTML Templates }}}

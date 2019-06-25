@@ -1,9 +1,8 @@
 const $ = require('jquery')
 const { BEMDOM, BemBlock } = require('..')
-// const { BEMDOM } = require('./BEMDOM')
 
 /* TODO:
- *   - [DOM Manipulation · Jest](https://jestjs.io/docs/en/tutorial-jquery)
+ *   - @see [DOM Manipulation · Jest](https://jestjs.io/docs/en/tutorial-jquery)
  *
  * To check:
  *   - setMod
