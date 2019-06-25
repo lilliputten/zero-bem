@@ -109,7 +109,7 @@ overrides:
       # template-curly-spacing: 0
       # yield-star-spacing: 0
     globals:
-      # See module requires option parameter for `webpack-nano-bemhtml-loader` in `webpack.config.js`
+      # See module requires option parameter for `webpack-zero-bemhtml-loader` in `webpack.config.js`
       config: true
       # All default BEMHTML mods:
       addAttrs: true

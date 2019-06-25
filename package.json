@@ -1,17 +1,17 @@
 {
-  "name": "nanobem",
+  "name": "zero-bem",
   "version": "0.1.2",
   "description": "Minimal ES6 bem library implementation",
   "main": "index.js",
   "author": "lilliputten <igor@lilliputten.ru> (http://lilliputten.ru)",
   "license": "MIT",
-  "homepage": "https://github.com/lilliputten/nanobem#readme",
+  "homepage": "https://github.com/lilliputten/zero-bem#readme",
   "bugs": {
-    "url": "https://github.com/lilliputten/nanobem/issues"
+    "url": "https://github.com/lilliputten/zero-bem/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lilliputten/nanobem.git"
+    "url": "git+https://github.com/lilliputten/zero-bem.git"
   },
   "keywords": [
     "bem",

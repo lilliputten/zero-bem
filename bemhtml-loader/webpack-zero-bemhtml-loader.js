@@ -1,4 +1,4 @@
-/** @module webpack-nano-bemhtml-loader
+/** @module webpack-zero-bemhtml-loader
  *  @description Webpack NanoBem bemhtml loader plugin
  *  @since 2019.03.06, 12:00
  *  @changed 2019.06.25, 11:42
@@ -23,7 +23,7 @@ const _loaderUtils = require('loader-utils');
 // const babel = require('@babel/core'); // TODO!
 const offsetLines = require('offset-sourcemap-lines'); // TODO!
 
-/** nano-bemhtml loader
+/** zero-bemhtml loader
  * @param {string} content
  * @return {string}
  */

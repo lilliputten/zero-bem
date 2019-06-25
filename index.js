@@ -1,5 +1,5 @@
-/** @module nanobem
- *  @description nanobem library index
+/** @module zero-bem
+ *  @description zero-bem library index
  *  @since 2019.03.16, 00:05
  *  @changed 2019.06.25, 11:44
  */

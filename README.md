@@ -1,6 +1,6 @@
-[![npm version](https://badge.fury.io/js/nanobem.svg)](https://badge.fury.io/js/nanobem)
+[![npm version](https://badge.fury.io/js/zero-bem.svg)](https://badge.fury.io/js/zero-bem)
 
-# nanobem
+# zero-bem
 
 Minimal ES6 bem-stack implementation library.
 
@@ -25,16 +25,16 @@ See also:
 
 ## Using in webpack
 
-You need to add `webpack-nano-bemhtml-loader` as `.bemhtml` files loader.
+You need to add `webpack-zero-bemhtml-loader` as `.bemhtml` files loader.
 
-(`NANOBEM_PATH` hereafter means the location of the `nano-bem` library, for
-example `./node_modules/nano-bem/` or `<rootDir>/node_modules/nano-bem/`
+(`NANOBEM_PATH` hereafter means the location of the `zero-bem` library, for
+example `./node_modules/zero-bem/` or `<rootDir>/node_modules/zero-bem/`
 etc...)
 
 `webpack.config.js` sample fragment:
 
 ```javascript
-const nanoBemHtmlLoaderPath = path.join(NANOBEM_PATH, 'bemhtml-loader/webpack-nano-bemhtml-loader'); // Or use `require.resolve`
+const nanoBemHtmlLoaderPath = path.join(NANOBEM_PATH, 'bemhtml-loader/webpack-zero-bemhtml-loader'); // Or use `require.resolve`
 // ...
 module.exports = (env, argv) => {
   return {
@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
 
 ## Using with jest
 
-You need to add `jest-transform-nano-bemhtml` as jest transform rule.
+You need to add `jest-transform-zero-bemhtml` as jest transform rule.
 
 `jest.config.js` sample fragment:
 
@@ -82,7 +82,7 @@ module.exports = {
   // ...
   transform: {
     // ...
-    '.+\\.(bemhtml)$': path.join(NANOBEM_PATH, 'bemhtml-loader/jest-transform-nano-bemhtml.js'),
+    '.+\\.(bemhtml)$': path.join(NANOBEM_PATH, 'bemhtml-loader/jest-transform-zero-bemhtml.js'),
     // ...
   },
   // ...
