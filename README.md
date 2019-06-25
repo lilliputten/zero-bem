@@ -1,6 +1,6 @@
-[![npm version](https://badge.fury.io/js/nano-bem.svg)](https://badge.fury.io/js/nano-bem)
+[![npm version](https://badge.fury.io/js/nanobem.svg)](https://badge.fury.io/js/nanobem)
 
-# nano-bem
+# nanobem
 
 Minimal ES6 bem-stack implementation library.
 
