@@ -151,6 +151,7 @@ const App_proto = /** @lends App.prototype */ {
 
     this.__base();
 
+    // Show app params
     console.log('App:onInit: params', this.params); // eslint-disable-line no-console
 
     // Make tests...
