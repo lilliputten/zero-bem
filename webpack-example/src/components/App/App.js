@@ -10,7 +10,7 @@ require('components/Demo');
 // Own technologies...
 
 require('./App.bemhtml');
-// require('./App.pcss');
+require('./App.pcss');
 
 /** Demo iterations timeout */
 const demoDelayTimeout = 2000;

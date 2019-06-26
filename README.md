@@ -142,9 +142,12 @@ module.exports = {
 
 ## Webpack example
 
-Webpack minimal working example configuration included in packag in folder `webpack-example`.
+Webpack minimal working example configuration included in packag in folder
+`webpack-example`.
 
-You can run npm scripts `webpack-example-build` or `webpack-example-server` for testing/experiments.
+You can run npm scripts `webpack-example-server` or `webpack-example-build` (or
+`webpack-example-build-prod` if you wish to play around production build) for
+testing/experiments.
 
 ## Original Yandex bem libs:
 

@@ -6,7 +6,7 @@
 const { BEMDOM } = require('zero-bem');
 
 require('./Demo.bemhtml');
-// require('./Demo.pcss');
+require('./Demo.pcss');
 
 const Demo_proto = /** @lends Demo.prototype */ {
 
@@ -17,7 +17,7 @@ const Demo_proto = /** @lends Demo.prototype */ {
     this.__base();
 
     console.log('Demo:onInit: params', this.params); // eslint-disable-line no-console
-    debugger
+    // debugger
 
   },
 

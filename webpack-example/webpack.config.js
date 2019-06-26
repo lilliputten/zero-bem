@@ -14,6 +14,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const UglifyJS = require('uglify-js');
+const ExtractCssPlugin = require('mini-css-extract-plugin');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier'); // https://www.npmjs.com/package/webpack-build-notifier
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
 const WebpackFilePreprocessorPlugin = require('webpack-file-preprocessor-plugin');
@@ -24,6 +25,8 @@ const pkgConfig = require('../package');
 
 const rootPath = path.resolve(__dirname);
 const buildPath = path.resolve(__dirname, 'build');
+const srcPath = path.join(rootPath, 'src');
+const mixinsPath = path.join(srcPath, 'postcss-mixins');
 
 const zeroBemHtmlLoaderPath = '../bemhtml-loader/webpack-zero-bemhtml-loader';
 
@@ -49,6 +52,7 @@ module.exports = (env = {}, argv) => {
   // webpack/dev-server modes
   const mode = argv.mode || 'production';
   const isDevServer = !!argv.host; // (mode === 'none'); // (none = server) // Alternate method: !!argv.host;
+  const cssHotReload = isDevServer; // Hot reload css for dev-server
   const isStats = !!argv.profile;
   const isWatch = !!argv.watch;
   const isDev = (/* isDevServer || */ mode === 'development');
@@ -88,15 +92,15 @@ module.exports = (env = {}, argv) => {
   const useHashes = false; // NOTE: Not works with pseudo-dynamic bundles loading method (with hardcoded urls)
   const bundleName = ({ ext, name, dir }={}) => (dir || 'js/') + (name || '[name]') + (useHashes && !isWatch && !isDevServer ? '-[contenthash:8]' : '') + (ext || '.js');
 
-  // const cssConfig = require('./styles.config.js');
+  const cssConfig = require('./styles.config.js');
   const postcssPlugins = [
-    require('postcss-flexbugs-fixes'),
-    require('postcss-import'),
+    // require('postcss-flexbugs-fixes'),
+    // require('postcss-import'),
     require('postcss-mixins')({
-      // mixinsDir: mixinsPath,
+      mixinsDir: mixinsPath,
     }), // https://github.com/postcss/postcss-mixins
     require('postcss-advanced-variables')({ // https://github.com/jonathantneal/postcss-advanced-variables
-      // variables: cssConfig,
+      variables: cssConfig,
     }),
     require('postcss-simple-vars'), // https://github.com/postcss/postcss-simple-vars
     require('postcss-color-function'), // https://github.com/postcss/postcss-color-function
@@ -109,19 +113,10 @@ module.exports = (env = {}, argv) => {
       // url: 'rebase',
     }),
     // Finishing...
-    require('autoprefixer')({
-      // TODO 2019.02.28, 21:05 -- Actual browsers list&
-      browsers: [
-        '>1%',
-        'last 4 versions',
-        'Firefox ESR',
-        'not ie < 9',
-      ],
-      flexbox: 'no-2009',
-    }),
+    require('autoprefixer')(),
     minimizeBundles && require('postcss-csso'),
     require('postcss-reporter'),
-  ];
+  ].filter(x => x);
 
   const uglifyOptions = {
     mangle: extemeUglify ? {
@@ -277,6 +272,10 @@ module.exports = (env = {}, argv) => {
           pattern: /\.js$/,
           // Do your processing in this process function.
           process: (source) => preprocessJs(source.toString())
+      }),
+      /** Extract css */
+      !cssHotReload && new ExtractCssPlugin({
+        filename: bundleName({ ext: '.css', dir: 'css/' }),
       }),
       /** Show system notification */
       new WebpackBuildNotifierPlugin({

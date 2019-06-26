@@ -13,8 +13,8 @@ const { BEMDOM } = require('zero-bem');
 // Main interface components...
 require('components/App');
 
-// // Main styles...
-// require('./index.pcss');
+// Main styles...
+require('./index.pcss');
 
 try {
 

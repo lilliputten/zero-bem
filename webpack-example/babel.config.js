@@ -6,7 +6,7 @@ module.exports = {
     [ 'module-resolver', { // https://github.com/tleunen/babel-plugin-module-resolver
       root: [ './' ],
       alias: {
-        'zero-bem': [ '../' ],
+        'zero-bem': [ '../src' ],
         components: [ './src/components' ],
       },
     }],

@@ -1,5 +1,20 @@
 .App {
   &,
   &__Container {
+    &Title {
+      background-color: #000;
+      color: #fff;
+      padding: $(itemPadding)px;
+    }
+  }
+  &__Info {
+    background-color: #eee;
+    padding: $(itemPadding)px;
+    &:before {
+      display: inline-block;
+      padding-right: 10px;
+      opacity: .5;
+      content: "Info: ";
+    }
   }
 }

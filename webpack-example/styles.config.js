@@ -1,8 +1,32 @@
+/** @module style.config
+ *  @description Common styles defintions
+ *  @since 2019.06.26, 16:08
+ *  @changed 2019.06.26, 16:08
+ */
+
+const defaultFontSize = 20;
+
 module.exports = {
 
   // DEBUG
 
   testColor: 'blue',
+
+  // Fonts
+
+  defaultFont: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+
+  defaultFontSize: defaultFontSize,
+  fontSize: defaultFontSize,
+  fontSizeM: defaultFontSize,
+  fontSizeSm: defaultFontSize - 2,
+  fontSizeXs: defaultFontSize - 4,
+  fontSizeLg: defaultFontSize + 2,
+  fontSizeXl: defaultFontSize + 4,
+  fontSizeXxl: defaultFontSize + 8,
+  titleFontSize: defaultFontSize + 8,
+  defaultLineHeight: 1.6,
+  defaultFontWeight: 400,
 
   // Accent colors
 
@@ -20,15 +44,9 @@ module.exports = {
 
   // Spacings & paddings...
 
-  innerPadding: '5px',
-  itemPadding: '10px',
-  containerPadding: '15px',
-  blockPadding: '20px',
+  innerPadding: 5,
+  itemPadding: 10,
+  containerPadding: 15,
+  blockPadding: 20,
 
-  // Parameters...
-
-  // // Use global flex container & in page components scrolls
-  // // NOTE: 2019.06.14, 13:14 -- Not used. Using `html.scrollable` dynamically creating selectors.
-  // useGlobalClipping: true,
-
-}
+};
