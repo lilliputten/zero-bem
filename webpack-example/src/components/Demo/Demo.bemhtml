@@ -1,0 +1,16 @@
+// vim: ft=javascript
+
+block('Demo')(
+
+  // Adding modifiers
+  addMods()(function(){
+    return this.extend({
+      // Test passing modifiers
+      bemhtml: 'ok',
+    }, applyNext());
+  }),
+
+  // Live entity
+  js()(true)
+
+);

@@ -14,9 +14,10 @@ without `y-modules`, `borschik`, `enb` and other endemic Yandex' tools.
 npm i -S zero-bem
 ```
 
-## Usage
+## Using in source code
 
-Basic usage case (rehydratiing dom, adding new nodes & entities, )
+Basic usage case (rehydratiing dom, adding new nodes & entities):
+
 ```javascript
 
   // const $ = require('jquery');
@@ -28,16 +29,18 @@ Basic usage case (rehydratiing dom, adding new nodes & entities, )
   // Init frozen DOM (came from app template)
   BEMDOM.hydrate();
 
+  // Find target block
   // const appBlock = BEMDOM.findEntities({ domElem: $('body'), block: 'App' });
   const appBlock = $('.App').bem('App');
 
+  // Find parent container
   const wrapperBlock = appBlock.findParentBlock('Wrapper');
 
   // Try to dynamically create blocks from template
   const template = {
     block: 'Demo',
     mix: {
-      block: 'mixed',
+      block: 'Mixed',
       mods: { test: 'val' },
       js: { param: 1 },
     },
@@ -56,13 +59,13 @@ Basic usage case (rehydratiing dom, adding new nodes & entities, )
   // Get bem entity
   const demoBlock = dom.bem('Demo');
 
-  // const mixedBlock = wrapperBlock.findChildBlock('mixed');
-  const mixedBlock = demoBlock.findMixedBlock({ block: 'mixed', modName: 'test', modVal: 'val' });
+  // const mixedBlock = wrapperBlock.findChildBlock('Mixed');
+  const mixedBlock = demoBlock.findMixedBlock({ block: 'Mixed', modName: 'test', modVal: 'val' });
   console.log('Mixed block params:', mixedBlock.params);
 
   // Find child
   const buttonElem = demoBlock.findChildElem('Button');
-  console.log()
+  console.log('Button element id:', buttonElem.getMod('id'));
 
   mixedBlock.setMod('alreadyFound');
 
@@ -70,21 +73,6 @@ Basic usage case (rehydratiing dom, adding new nodes & entities, )
   BEMDOM.remove(demoBlock);
 
 ```
-
-## Original Yandex bem libs:
-
-- [bem/bem-core: BEM Core Library](https://github.com/bem/bem-core)
-- [bem/bem-xjst: bem-xjst (eXtensible JavaScript Templates): declarative template engine for the browser and server](https://github.com/bem/bem-xjst)
-- [bem/project-stub: deps](https://github.com/bem/project-stub)
-
-See also:
-
-- [bem/bem-sdk: BEM SDK packages](https://github.com/bem/bem-sdk)
-- [SDK / Toolbox / BEM](https://en.bem.info/toolbox/sdk/)
-- [bem/webpack-bem-loader: Webpack BEM loader](https://github.com/bem/webpack-bem-loader)
-- [bem/eslint-plugin-bem-xjst: ESLint environments for bem-xjst](https://github.com/bem/eslint-plugin-bem-xjst)
-
-- [...And so on...](https://github.com/bem)
 
 ## Using in webpack
 
@@ -151,3 +139,25 @@ module.exports = {
   // ...
 };
 ```
+
+## Webpack example
+
+Webpack minimal working example configuration included in packag in folder `webpack-example`.
+
+You can run npm scripts `webpack-example-build` or `webpack-example-server` for testing/experiments.
+
+## Original Yandex bem libs:
+
+- [bem/bem-core: BEM Core Library](https://github.com/bem/bem-core)
+- [bem/bem-xjst: bem-xjst (eXtensible JavaScript Templates): declarative template engine for the browser and server](https://github.com/bem/bem-xjst)
+- [bem/project-stub: deps](https://github.com/bem/project-stub)
+
+See also:
+
+- [bem/bem-sdk: BEM SDK packages](https://github.com/bem/bem-sdk)
+- [SDK / Toolbox / BEM](https://en.bem.info/toolbox/sdk/)
+- [bem/webpack-bem-loader: Webpack BEM loader](https://github.com/bem/webpack-bem-loader)
+- [bem/eslint-plugin-bem-xjst: ESLint environments for bem-xjst](https://github.com/bem/eslint-plugin-bem-xjst)
+
+- [...And so on...](https://github.com/bem)
+

@@ -1,0 +1,7 @@
+// vim: ft=javascript
+
+block('App')(
+
+  js()(true)
+
+);

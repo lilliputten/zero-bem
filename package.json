@@ -1,8 +1,9 @@
 {
   "name": "zero-bem",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "Minimal ES6 bem library implementation",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "main-src": "src/index.js",
   "author": "lilliputten <igor@lilliputten.ru> (http://lilliputten.ru)",
   "license": "MIT",
   "homepage": "https://github.com/lilliputten/zero-bem#readme",
@@ -32,22 +33,32 @@
     "offset-sourcemap-lines": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/polyfill": "^7.4.4",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "babel-plugin-directory-resolver": "^1.1.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "babel-preset-es2015": "^6.24.1",
     "bem-xjst": "^8.9.5",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
     "dateformat": "^3.0.3",
     "eslint": "^6.0.1",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-jest": "^22.7.1",
     "event-hooks-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
+    "stylelint": "^10.1.0",
+    "stylelint-scss": "^3.8.0",
     "uglify-js": "^3.6.0",
     "uglifyjs-webpack-plugin": "^2.1.3",
     "webpack": "^4.35.0",
     "webpack-build-notifier": "^1.0.3",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2",
     "webpack-file-preprocessor-plugin": "0.0.1"
   },
   "scripts": {
@@ -59,8 +70,11 @@
     "build-dev": "echo --Build development-- && webpack --mode development",
     "build-prod": "echo --Build production-- && webpack --mode production",
     "build": "echo --Build default-- && npm run -s build-prod",
+    "dist": "echo --Make dist-- && babel -s -d dist src",
     "webpack-stats": "echo --Generate webpack stats-- && webpack --profile --json > .webpack-stats.json",
     "webpack-stats-analyze": "echo --Analyze webpack stats-- && npm run -s webpack-stats && webpack-bundle-analyzer .webpack-stats.json build",
+    "webpack-example-build": "echo --Build webpack example-- && cd webpack-example && webpack --mode development",
+    "webpack-example-server": "echo --Webpack example demo server-- && cd webpack-example && webpack-dev-server --env.THEME=localServer --mode development --hot",
     "tags": "ctags -R --exclude=@.ctagsignore ."
   }
 }

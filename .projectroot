@@ -19,7 +19,6 @@
 - `jest.config.js`
 - `.eslintrc.yml`
 - `.eslintignore`
-- `~~.stylelintrc.yml`~~
+- `.stylelintrc.yml`
 - ~~`.stylelintignore`~~
-
 

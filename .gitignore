@@ -1,8 +1,12 @@
+# Misc temp & local files
 /.vscode/
+/.env
+/webpack.env.js
 /tags
 /.webpack-stats.json
+
 /build/
-/webpack.env.js
+/webpack-example/build/
 
 # Logs
 /npm-debug.log*
