@@ -12,12 +12,10 @@
 
 - `.git/config`
 - `package.json`
-- ~~`webpack.env.js`~~
-- ~~`webpack.config.js`~~
-- ~~`babel.config.js`~~
+- `webpack.config.js`
+- `babel.config.js`
 - ~~`.lvimrc`~~
 - `.editorconfig`
-- ~~`gulpfile.js`~~
 - `jest.config.js`
 - `.eslintrc.yml`
 - `.eslintignore`

@@ -1,8 +1,11 @@
-.vscode
-tags
+/.vscode/
+/tags
+/.webpack-stats.json
+/build/
+/webpack.env.js
 
 # Logs
-npm-debug.log*
+/npm-debug.log*
 
 # Dependency directories
-node_modules/
+/node_modules/

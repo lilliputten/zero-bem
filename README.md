@@ -27,14 +27,14 @@ See also:
 
 You need to add `webpack-zero-bemhtml-loader` as `.bemhtml` files loader.
 
-(`NANOBEM_PATH` hereafter means the location of the `zero-bem` library, for
+(`ZEROBEM_PATH` hereafter means the location of the `zero-bem` library, for
 example `./node_modules/zero-bem/` or `<rootDir>/node_modules/zero-bem/`
 etc...)
 
 `webpack.config.js` sample fragment:
 
 ```javascript
-const nanoBemHtmlLoaderPath = path.join(NANOBEM_PATH, 'bemhtml-loader/webpack-zero-bemhtml-loader'); // Or use `require.resolve`
+const nanoBemHtmlLoaderPath = path.join(ZEROBEM_PATH, 'bemhtml-loader/webpack-zero-bemhtml-loader'); // Or use `require.resolve`
 // ...
 module.exports = (env, argv) => {
   return {
@@ -82,7 +82,7 @@ module.exports = {
   // ...
   transform: {
     // ...
-    '.+\\.(bemhtml)$': path.join(NANOBEM_PATH, 'bemhtml-loader/jest-transform-zero-bemhtml.js'),
+    '.+\\.(bemhtml)$': path.join(ZEROBEM_PATH, 'bemhtml-loader/jest-transform-zero-bemhtml.js'),
     // ...
   },
   // ...

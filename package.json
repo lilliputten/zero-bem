@@ -33,11 +33,22 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
     "bem-xjst": "^8.9.5",
+    "clean-webpack-plugin": "^3.0.0",
+    "dateformat": "^3.0.3",
     "eslint": "^6.0.1",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-jest": "^22.7.1",
-    "jest": "^24.8.0"
+    "event-hooks-webpack-plugin": "^2.1.2",
+    "jest": "^24.8.0",
+    "uglify-js": "^3.6.0",
+    "uglifyjs-webpack-plugin": "^2.1.3",
+    "webpack": "^4.35.0",
+    "webpack-build-notifier": "^1.0.3",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-file-preprocessor-plugin": "0.0.1"
   },
   "scripts": {
     "eslint": "echo --JS source code linting-- && eslint src --ext .js && echo No JS problems found",
@@ -45,6 +56,11 @@
     "jest-clear": "echo --Clear jest cache-- && jest --clearCache",
     "jest": "echo --Run tests-- && jest --verbose",
     "test": "echo --Run all lintings and tests-- && npm-run-all lint jest",
+    "build-dev": "echo --Build development-- && webpack --mode development",
+    "build-prod": "echo --Build production-- && webpack --mode production",
+    "build": "echo --Build default-- && npm run -s build-prod",
+    "webpack-stats": "echo --Generate webpack stats-- && webpack --profile --json > .webpack-stats.json",
+    "webpack-stats-analyze": "echo --Analyze webpack stats-- && npm run -s webpack-stats && webpack-bundle-analyzer .webpack-stats.json build",
     "tags": "ctags -R --exclude=@.ctagsignore ."
   }
 }
