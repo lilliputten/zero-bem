@@ -8,6 +8,69 @@ Based, inspired and partly inherits the code from famous client-side framework
 [i-bem](https://en.bem.info/technologies/classic/i-bem/) but it can work
 without `y-modules`, `borschik`, `enb` and other endemic Yandex' tools.
 
+## Installation
+
+```shell
+npm i -S zero-bem
+```
+
+## Usage
+
+Basic usage case (rehydratiing dom, adding new nodes & entities, )
+```javascript
+
+  // const $ = require('jquery');
+
+  // document.body.innerHTML = '<div class="Wrapper"><div class="App bem-js" data-bem=\'{"Test":{"test":true}}\'>App content</div></div>';
+
+  const { BEMDOM, BEMHTML } = require('zero-bem');
+
+  // Init frozen DOM (came from app template)
+  BEMDOM.hydrate();
+
+  // const appBlock = BEMDOM.findEntities({ domElem: $('body'), block: 'App' });
+  const appBlock = $('.App').bem('App');
+
+  const wrapperBlock = appBlock.findParentBlock('Wrapper');
+
+  // Try to dynamically create blocks from template
+  const template = {
+    block: 'Demo',
+    mix: {
+      block: 'mixed',
+      mods: { test: 'val' },
+      js: { param: 1 },
+    },
+    mods: { test: true },
+    content: [
+      { elem: 'Button', modName: 'id', modVal: 'action' },
+    ],
+  };
+
+  // Create html from template
+  const html = BEMHTML.apply(template);
+
+  // Add dom node
+  const dom = BEMDOM.prepend(wrapperBlock, html);
+
+  // Get bem entity
+  const demoBlock = dom.bem('Demo');
+
+  // const mixedBlock = wrapperBlock.findChildBlock('mixed');
+  const mixedBlock = demoBlock.findMixedBlock({ block: 'mixed', modName: 'test', modVal: 'val' });
+  console.log('Mixed block params:', mixedBlock.params);
+
+  // Find child
+  const buttonElem = demoBlock.findChildElem('Button');
+  console.log()
+
+  mixedBlock.setMod('alreadyFound');
+
+  // Remove created node & all linked & nested bem entities (Demo itself, all mixes, siblings and children)
+  BEMDOM.remove(demoBlock);
+
+```
+
 ## Original Yandex bem libs:
 
 - [bem/bem-core: BEM Core Library](https://github.com/bem/bem-core)
