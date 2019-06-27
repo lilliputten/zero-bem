@@ -10,16 +10,25 @@ exports["default"] = void 0;
  *  @desc Minimal events manager engine
  *  @since 2019.06.06, 09:32
  *  @changed 2019.06.27, 08:27
+ *
+ * TODO:
+ *   - 2019.06.27, 11:49 -- Tests
+ *     @see:
+ *       - https://github.com/psfe/micro-event/blob/master/test.js
  */
 var inherit = require('inherit');
 
 var MicroEvents = inherit(
 /** @lends MicroEvents.prototype */
 {
-  /** Event handlers storage
-   * @type {Object}
-   */
-  _handlers: {},
+  __constructor: function __constructor() {
+    this.__base && this.__base.apply(this, arguments);
+    /** Event handlers storage
+     * @type {Object}
+     */
+
+    this._handlers = {};
+  },
 
   /** Low-level add handler method
    * @param {String} id
@@ -27,8 +36,11 @@ var MicroEvents = inherit(
    */
   _add: function _add(id, handlerData) {
     if (handlerData) {
-      (this._handlers[id] || (this._handlers[id] = [])).push(handlerData);
+      var handlers = this._handlers[id] || (this._handlers[id] = []);
+      handlers.push(handlerData);
     }
+
+    return this;
   },
 
   /** Add event handler
