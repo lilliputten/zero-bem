@@ -11,7 +11,7 @@ const { BEMDOM } = require('./BEMDOM');
 const { config } = require('./config');
 const { utils } = require('./utils');
 
-const Events = require('./Events').default;
+// const Events = require('./MicroEvents').default;
 
 const BemEntity = require('./BemEntity').default;
 const BemBlock = require('./BemBlock').default;
@@ -23,7 +23,7 @@ export {
   config,
   utils,
 
-  Events,
+  // Events,
 
   BEMDOM,
   BEMHTML,

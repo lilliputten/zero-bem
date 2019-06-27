@@ -14,7 +14,7 @@ const inherit = require('inherit');
 
 const { /* elemDelim, */ modDelim, modValDelim } = config;
 
-const Events = require('./Events').default;
+const Events = require('./MicroEvents').default;
 
 /** inherit BemEntity */
 const BemEntity = inherit(/** @lends BemEntity.prototype */ {

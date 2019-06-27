@@ -76,6 +76,10 @@ const App_proto = /** @lends App.prototype */ {
     return this.delayInfoPromise('Info element was created');
   },
 
+  demoEventHandler: function(/* event, data */) {
+    this.setInfo('Demo event received');
+  },
+
   addDemoBlock: function() {
 
     // Try to dynamically create blocks from template
@@ -104,6 +108,9 @@ const App_proto = /** @lends App.prototype */ {
 
     // Get bem entity
     const demoBlock = dom.bem('Demo');
+
+    // Add event handler
+    demoBlock.events().once('demoEvent', this.demoEventHandler, this);
 
     // Get mixed block
     const mixedBlock = demoBlock.findMixedBlock({ block: 'Mixed', modName: 'test', modVal: 'val' });

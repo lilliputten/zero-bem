@@ -2,7 +2,7 @@ module.exports = {
   presets: [
     '@babel/preset-env',
   ],
-  ignore: [ '**/*.test.js' ],
+  ignore: [ '**/*.test.js',  '**/*.UNUSED.js' ],
   plugins: [
     /* [ 'module-resolver', { // https://github.com/tleunen/babel-plugin-module-resolver
      *   root: [ './' ],

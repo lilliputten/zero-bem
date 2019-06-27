@@ -80,5 +80,4 @@ Events.prototype.off = function(id, func, ctx) {
 };
 Events.prototype.un = Events.prototype.off; // Syn
 
-
 export default Events;

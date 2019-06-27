@@ -17,7 +17,11 @@ const Demo_proto = /** @lends Demo.prototype */ {
     this.__base();
 
     console.log('Demo:onInit: params', this.params); // eslint-disable-line no-console
-    // debugger
+
+    // Emit demo event
+    setTimeout(() => {
+      this.emit('demoEvent', { ok: true });
+    }, 1000);
 
   },
 
