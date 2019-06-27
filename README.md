@@ -143,7 +143,7 @@ module.exports = {
 ## Webpack example
 
 Webpack minimal working example configuration included in packag in folder
-`webpack-example`.
+[webpack-example](webpack-example).
 
 You can run npm scripts `webpack-example-server` or `webpack-example-build` (or
 `webpack-example-build-prod` if you wish to play around production build) for
