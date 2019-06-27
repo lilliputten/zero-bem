@@ -151,7 +151,7 @@ module.exports = (env = {}, argv) => {
     return src;
   };
 
-  return {
+  return { // Configuration object...
 
     mode, // Depends on command line options
     devtool: useDevTool && 'source-map', // 'cheap-module-source-map',
@@ -162,6 +162,9 @@ module.exports = (env = {}, argv) => {
     entry: [
       entryPoint,
     ],
+    resolve: {
+      extensions: ['.js'],
+    },
 
     output: {
       path: buildPath,
@@ -350,9 +353,6 @@ module.exports = (env = {}, argv) => {
     stats: {
       // Nice colored output
       colors: true,
-    },
-    resolve: {
-      extensions: ['.js'],
     },
 
   };

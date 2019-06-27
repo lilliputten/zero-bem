@@ -9,10 +9,10 @@ plugins:
 syntax: scss
 
 files:
-  - "src/**/*.css"
+  - "src/**/*.{css,pcss,less}"
 ignoreFiles:
   - "**/*_"
-  - "bundles/"
+  - "bundle/"
 
 rules:
   indentation:
