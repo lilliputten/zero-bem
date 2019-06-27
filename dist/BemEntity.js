@@ -30,7 +30,7 @@ var inherit = require('inherit');
 var modDelim = config.modDelim,
     modValDelim = config.modValDelim;
 
-var Events = require('./Events')["default"];
+var Events = require('./MicroEvents')["default"];
 /** inherit BemEntity */
 
 

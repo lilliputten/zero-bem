@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.BemMod = exports.BemElem = exports.BemBlock = exports.BemEntity = exports.BEMHTML = exports.BEMDOM = exports.Events = exports.utils = exports.config = void 0;
+exports.BemMod = exports.BemElem = exports.BemBlock = exports.BemEntity = exports.BEMHTML = exports.BEMDOM = exports.utils = exports.config = void 0;
 
 /** @module zero-bem
  *  @description zero-bem library index
@@ -26,13 +26,10 @@ var _require3 = require('./config'),
 exports.config = config;
 
 var _require4 = require('./utils'),
-    utils = _require4.utils;
+    utils = _require4.utils; // const Events = require('./MicroEvents').default;
+
 
 exports.utils = utils;
-
-var Events = require('./Events')["default"];
-
-exports.Events = Events;
 
 var BemEntity = require('./BemEntity')["default"];
 

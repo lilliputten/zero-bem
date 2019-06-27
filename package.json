@@ -1,6 +1,6 @@
 {
   "name": "zero-bem",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Minimal ES6 bem library implementation",
   "main": "dist/index.js",
   "main-src": "src/index.js",
