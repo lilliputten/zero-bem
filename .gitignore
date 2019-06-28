@@ -13,3 +13,10 @@
 
 # Dependency directories
 /node_modules/
+
+# Tests
+!__mocks__
+!__snapshots__
+
+# Vim sessions:
+/*.session

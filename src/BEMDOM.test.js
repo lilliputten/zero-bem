@@ -1,5 +1,5 @@
 const $ = require('jquery')
-const { BEMDOM, BemBlock } = require('..')
+const { BEMDOM, BemBlock } = require('./')
 
 /* TODO:
  *   - @see [DOM Manipulation · Jest](https://jestjs.io/docs/en/tutorial-jquery)
