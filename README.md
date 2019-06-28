@@ -14,7 +14,9 @@ without `y-modules`, `borschik`, `enb` and other endemic Yandex' tools.
 npm i -S zero-bem
 ```
 
-## Using in source code
+## Using
+
+### Using in runtime
 
 Basic usage case (rehydratiing dom, adding new nodes & entities):
 
@@ -71,10 +73,104 @@ Basic usage case (rehydratiing dom, adding new nodes & entities):
 
   // Remove created node & all linked & nested bem entities (Demo itself, all mixes, siblings and children)
   BEMDOM.remove(demoBlock);
-
 ```
 
-## Using in webpack
+### Using as modules
+
+Suppose you have component `Demo`. Then you can create some 'technologies'
+modules for it in (for example) folder
+[src/components/Demo/](webpack-example/src/components/Demo/):
+
+JS runtime code (main module, which includes any other components' technology
+modules, as shown below) --
+[Demo.js](webpack-example/src/components/Demo/Demo.js):
+
+```javascript
+const { BEMDOM } = require('zero-bem');
+
+require('./Demo.bemhtml'); // Include bemhtml templates
+require('./Demo.pcss'); // Include styles
+
+const Demo_proto = /** @lends Demo.prototype */ {
+
+  /** Initialize the component event handler
+   */
+  onInit: function() {
+
+    this.__base();
+
+    console.log('Demo:onInit: params', this.params); // eslint-disable-line no-console
+
+    // Emit demo event
+    setTimeout(() => {
+      this.emit('demoEvent', { ok: true });
+    }, 1000);
+
+  },
+
+};
+
+export default BEMDOM.declBlock('Demo', Demo_proto);
+```
+
+BEMHTML templates -- [Demo.bemhtml](webpack-example/src/components/Demo/Demo.bemhtml):
+
+```javascript
+block('Demo')(
+
+  // Adding modifiers
+  addMods()(function(){
+    return this.extend({
+      // Test passing modifiers
+      bemhtml: 'ok',
+    }, applyNext());
+  }),
+
+  // Live entity
+  js()(true)
+
+);
+```
+
+Some styles if you need/want -- [Demo.pcss](webpack-example/src/components/Demo/Demo.pcss):
+
+```scss
+.Demo {
+  padding: $(itemPadding)px;
+  @mixin debug gray, 10%;
+}
+```
+
+Hereafter you can use your component in other module.
+
+You must use import component to let the webpack to know that it must to include it in the application build.
+
+For example application main component [App.js](webpack-example/src/components/App/App.js) uses our `Demo`:
+
+```javascript
+import('components/Demo');
+
+const App_proto = /** @lends App.prototype */ {
+
+  /** Initialize the app event handler
+   */
+  onInit: function() {
+
+    // Find demo block
+    const demoBlock = this.findChildBlock('Demo');
+
+    // Do something with Demo: subscribe to events, change state, get properties, call it methods...
+
+  },
+
+};
+
+export default BEMDOM.declBlock('App', App_proto);
+```
+
+NOTE: Other documentation is in progress...
+
+### Webpack configuration
 
 You need to add `webpack-zero-bemhtml-loader` as `.bemhtml` files loader.
 
@@ -122,7 +218,7 @@ module.exports = (env, argv) => {
 }; // module.exports end
 ```
 
-## Using with jest
+### Jest configuration
 
 You need to add `jest-transform-zero-bemhtml` as jest transform rule.
 
@@ -140,7 +236,7 @@ module.exports = {
 };
 ```
 
-## Webpack example
+### Webpack example
 
 Webpack minimal working example configuration included in packag in folder
 [webpack-example](webpack-example).

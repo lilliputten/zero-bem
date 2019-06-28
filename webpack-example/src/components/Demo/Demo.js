@@ -10,7 +10,7 @@ require('./Demo.pcss');
 
 const Demo_proto = /** @lends Demo.prototype */ {
 
-  /** Initialize the app event handler
+  /** Initialize the component event handler
    */
   onInit: function() {
 
