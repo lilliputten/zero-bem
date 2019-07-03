@@ -5,9 +5,7 @@
  *  @changed 2019.06.27, 08:27
  *
  * TODO:
- *   - 2019.06.27, 11:49 -- Tests
- *     @see:
- *       - https://github.com/psfe/micro-event/blob/master/test.js
+ *   - Synthetic events creation?
  */
 
 const inherit = require('inherit');
@@ -70,7 +68,8 @@ const MicroEvents = inherit( /** @lends MicroEvents.prototype */ {
    * @return {Object} this
    */
   off: function(id, cb, ctx) {
-    const cbs = this._handlers[id];
+    const handlers = this._handlers;
+    const cbs = handlers[id];
     if (typeof cb === 'function' && Array.isArray(cbs)) {
       // Find last mathing handler
       const found = cbs.reduce((found, item, n) => {
@@ -84,6 +83,23 @@ const MicroEvents = inherit( /** @lends MicroEvents.prototype */ {
       if (found !== -1) {
         cbs.splice(found, 1);
       }
+    }
+    // If passed only id then clean all handlers for this id
+    else if (arguments.length === 1 && cbs) {
+      cbs.splice(0);
+    }
+    // If nothing passed then clean all handlers for all ids
+    else if (arguments.length === 0) {
+      // Method 1: Create brand new empty handlers storage
+      // this._handlers = {};
+      // Method 2: Reset each handlers list to empty array
+      // Object.values(handlers).forEach((cbs) => {
+      //   cbs.splice(0);
+      // });
+      // Method 3: Remove all handler array entries
+      Object.keys(handlers).forEach((id) => {
+        delete handlers[id];
+      });
     }
     return this;
   },
